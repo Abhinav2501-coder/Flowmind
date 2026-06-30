@@ -1,0 +1,6 @@
+{
+  "name": "Flowmind",
+  "description": "An AI-powered productivity coach and task management platform featuring cognitive load tracking, deep work logging, and real-time habits syncing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

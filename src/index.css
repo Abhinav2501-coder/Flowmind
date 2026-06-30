@@ -1,0 +1,235 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .premium-card {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -8px rgba(124, 110, 240, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    @apply border border-surface bg-card rounded-2xl transition-all duration-200 ease-out;
+  }
+  .premium-card-hover:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 12px 32px -8px rgba(124, 110, 240, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    @apply -translate-y-0.5 border-text/20;
+  }
+  .tabular-stats {
+    @apply font-semibold tabular-nums tracking-tight;
+  }
+  .section-eyebrow {
+    @apply text-[11px] tracking-[0.08em] uppercase text-muted font-semibold;
+  }
+}
+
+:root {
+  --bg: #0a0a0f;
+  --surface: #12121a;
+  --card: #1a1a26;
+  --text: #e8e8f0;
+  --muted: #6b6b80;
+}
+
+.light {
+  --bg: #f8f7ff;
+  --surface: #ffffff;
+  --card: #f0effe;
+  --text: #1a1826;
+  --muted: #6b6b80;
+}
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--bg);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-primary: #7c6ef0;
+  --color-accent: #f0a500;
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+}
+
+* {
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+*:focus-visible {
+  outline: 2px solid #7c6ef0 !important;
+  outline-offset: 2px;
+}
+button,
+[role="button"] {
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease !important;
+}
+button:active,
+[role="button"]:active {
+  transform: scale(0.97) !important;
+}
+
+body {
+  @apply bg-background text-text font-sans antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-display;
+}
+
+/* Custom CSS to override react-big-calendar's default styles to match FlowMind dark theme */
+.rbc-calendar {
+  background-color: transparent !important;
+  color: var(--color-text) !important;
+  font-family: var(--font-sans) !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.rbc-month-view,
+.rbc-time-view,
+.rbc-agenda-view {
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  background-color: rgba(18, 18, 26, 0.4) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02) !important;
+}
+
+.rbc-header {
+  background-color: rgba(18, 18, 26, 0.8) !important;
+  color: var(--color-muted) !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 700 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  padding: 16px 0 !important;
+  text-transform: uppercase !important;
+  font-size: 10px !important;
+  letter-spacing: 0.1em !important;
+}
+
+.rbc-day-bg {
+  background-color: transparent !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.03) !important;
+}
+
+.rbc-day-bg + .rbc-day-bg {
+  border-left: 1px solid rgba(255, 255, 255, 0.03) !important;
+}
+
+.rbc-month-row + .rbc-month-row {
+  border-top: 1px solid rgba(255, 255, 255, 0.03) !important;
+}
+
+.rbc-day-bg.rbc-today {
+  background-color: rgba(124, 110, 240, 0.05) !important;
+}
+
+.rbc-off-range-bg {
+  background-color: rgba(10, 10, 15, 0.4) !important;
+}
+
+.rbc-event {
+  border-radius: 6px !important;
+  padding: 3px 6px !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  border: 1px solid transparent !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  margin-top: 2px !important;
+  margin-bottom: 2px !important;
+  transition: transform 0.2s, filter 0.2s !important;
+  letter-spacing: 0.02em !important;
+}
+
+.rbc-event:hover {
+  filter: brightness(1.1) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Color codes for upcoming, today, overdue, done */
+.event-upcoming {
+  background-color: rgba(124, 110, 240, 0.15) !important;
+  color: var(--color-primary) !important;
+  border-color: rgba(124, 110, 240, 0.3) !important;
+}
+
+.event-today {
+  background-color: rgba(240, 165, 0, 0.15) !important;
+  color: var(--color-accent) !important;
+  border-color: rgba(240, 165, 0, 0.3) !important;
+}
+
+.event-overdue {
+  background-color: rgba(239, 68, 68, 0.15) !important;
+  color: var(--color-danger) !important;
+  border-color: rgba(239, 68, 68, 0.3) !important;
+}
+
+.event-done {
+  background-color: rgba(34, 197, 94, 0.1) !important;
+  color: rgba(34, 197, 94, 0.8) !important;
+  text-decoration: line-through !important;
+  border-color: rgba(34, 197, 94, 0.2) !important;
+}
+
+.rbc-show-more {
+  background-color: transparent !important;
+  color: var(--color-primary) !important;
+  font-weight: bold !important;
+  font-size: 10px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+.rbc-time-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.rbc-time-content {
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.rbc-time-gutter {
+  color: var(--color-muted) !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  padding-right: 8px !important;
+}
+
+.rbc-agenda-view table.rbc-agenda-table {
+  border: none !important;
+}
+
+.rbc-agenda-view table.rbc-agenda-table tbody > tr > td {
+  padding: 12px 16px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+}
+
+.rbc-agenda-date-cell,
+.rbc-agenda-time-cell {
+  font-weight: 700 !important;
+  color: var(--color-text) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+.rbc-date-cell {
+  padding: 8px !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+  color: var(--color-muted) !important;
+}
+.rbc-current-time-indicator {
+  background-color: var(--color-accent) !important;
+}
+
